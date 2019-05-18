@@ -3,8 +3,7 @@ import reducer, {
   defaultState,
   deleteItem,
   changeItemIsDone,
-  changeItemText,
-  addNewItem
+  changeItemText
 } from "./todos.js";
 
 import ReduxThunk from "redux-thunk";
@@ -146,61 +145,3 @@ describe("changeItemIsDone", () => {
     });
   });
 });
-
-// describe("addNewItem", () => {
-//   it("works addNewItem", async () => {
-//     const stateWithItem = {
-//       ...defaultState,
-//       items: [
-//         {
-//           id: 1,
-//           text: "buy milk",
-//           isDone: true
-//         },
-//         {
-//           id: 2,
-//           text: "go home",
-//           isDone: false
-//         }
-//       ]
-//     };
-
-//     const newItem = {
-//       id: 3,
-//       text: "some notes",
-//       isDone: false
-//     };
-
-//     const api = {
-//       todos: {
-//         addNewItem: newItem => Promise.resolve(...stateWithItem, newItem)
-//       }
-//     };
-
-//     const store = createStore(
-//       reducer,
-//       stateWithItem,
-//       applyMiddleware(ReduxThunk.withExtraArgument({ api }))
-//     );
-
-//     await store.dispatch(addNewItem());
-
-//     const nextstate = store.getState();
-
-//     expect(nextstate).toEqual({
-//       ...defaultState,
-//       items: [
-//         {
-//           id: 1,
-//           text: "buy milk",
-//           isDone: true
-//         },
-//         {
-//           id: 2,
-//           text: "go home",
-//           isDone: false
-//         }
-//       ]
-//     });
-//   });
-// });

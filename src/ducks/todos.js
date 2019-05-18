@@ -1,12 +1,9 @@
-import axios from "axios";
 import { createSelector } from "reselect";
 
 // import api from "./api/index";
 
 const appName = "rr2";
 const moduleName = "todos";
-
-const BASE_URL = process.env.REACT_APP_SERVER_URL;
 
 /**
  * Constants
