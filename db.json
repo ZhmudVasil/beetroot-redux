@@ -1,0 +1,14 @@
+{
+  "todos": [
+    {
+      "id": "Sat May 11 2019/0.9806490074681602",
+      "text": "buy milk",
+      "isDone": true
+    },
+    {
+      "id": "Sat May 11 2019/0.47568709267878395",
+      "text": "go home",
+      "isDone": false
+    }
+  ]
+}
