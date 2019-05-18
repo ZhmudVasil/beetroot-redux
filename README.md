@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+[![CircleCI](https://circleci.com/gh/ZhmudVasil/beetroot-redux.svg?style=svg)](https://circleci.com/gh/ZhmudVasil/beetroot-redux)
+
 ## Available Scripts
 
 In the project directory, you can run:
