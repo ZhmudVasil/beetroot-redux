@@ -1,4 +1,43 @@
 {
+  "products": [
+    {
+      "id": 1,
+      "name": "some product 1111"
+    },
+    {
+      "id": 2,
+      "name": "some product number 2222"
+    },
+    {
+      "id": 3,
+      "name": "some product number 3"
+    },
+    {
+      "name": "ghfgh",
+      "description": "dfhfjgjhhhhhh",
+      "id": 4
+    },
+    {
+      "name": "44444444",
+      "description": "4444444444",
+      "id": 5
+    },
+    {
+      "name": "111112222",
+      "description": "111111",
+      "id": 6
+    },
+    {
+      "name": "222222",
+      "description": "222222",
+      "id": 7
+    },
+    {
+      "name": "77777",
+      "description": "77777",
+      "id": 8
+    }
+  ],
   "todos": [
     {
       "id": "Sat May 11 2019/0.9806490074681602",
@@ -8,6 +47,11 @@
     {
       "id": "Sat May 11 2019/0.47568709267878395",
       "text": "go home",
+      "isDone": false
+    },
+    {
+      "id": "1558348087554-0.21693137542657448",
+      "text": "fdd",
       "isDone": false
     }
   ]

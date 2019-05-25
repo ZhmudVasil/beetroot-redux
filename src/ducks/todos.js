@@ -1,7 +1,5 @@
 import { createSelector } from "reselect";
 
-// import api from "./api/index";
-
 const appName = "rr2";
 const moduleName = "todos";
 
