@@ -51,9 +51,7 @@ jobs:
       - restore_cache:
           keys:
             - v1-repo-{{ .Environment.CIRCLE_SHA1 }}
-            
-      - run: npm run lint
-      - run: npm test
+
       - run: npm run deploy
 
 
@@ -66,5 +64,5 @@ workflows:
           requires:
             - install
       - deploy:
-        requires:
+          requires:
             - lint_and_test
