@@ -52,7 +52,7 @@ jobs:
           keys:
             - v1-repo-{{ .Environment.CIRCLE_SHA1 }}
 
-      - run: npm run deploy
+      - run: npm run deploy-window
 
 
 workflows:
