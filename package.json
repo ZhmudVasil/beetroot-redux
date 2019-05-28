@@ -18,13 +18,14 @@
   "scripts": {
     "start": "react-scripts start",
     "start-server": "json-server --watch db.json --port 3004 -d 1000",
+    "start-server-with-auth": "node server.js",
     "build": "react-scripts build",
     "lint": "eslint --ext js,jsx src",
     "format": "eslint --fix --ext js,jsx src",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && echo acoustic-carriage.surge.sh > build/CNAME && mv build/index.html build/200.html && surge build",
-    "deploy-window": "npm run build && echo acoustic-carriage.surge.sh > build/CNAME && move build/index.html build/200.html && surge build"
+    "deploy": "npm run build && echo determined-wealth.surge.sh > build/CNAME && mv build/index.html build/200.html && surge build",
+    "deploy-window": "npm run build && echo determined-wealth.surge.sh > build/CNAME && move build/index.html build/200.html && surge build"
   },
   "browserslist": {
     "production": [

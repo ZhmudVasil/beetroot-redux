@@ -2,12 +2,13 @@ import { createSelector } from "reselect";
 
 const appName = "rr2";
 export const moduleName = "products";
+
 /**
  * Constants
  */
-const FETCH_PRODUCTS_REQUEST = `${appName}/${moduleName}/FETCH_PRODUCTS/REQUEST`;
-const FETCH_PRODUCTS_SUCCESS = `${appName}/${moduleName}/FETCH_PRODUCTS/SUCCESS`;
-const FETCH_PRODUCTS_FAILURE = `${appName}/${moduleName}/FETCH_PRODUCTS/FAILURE`;
+const FETCH_LIST_REQUEST = `${appName}/${moduleName}/FETCH_LIST/REQUEST`;
+const FETCH_LIST_SUCCESS = `${appName}/${moduleName}/FETCH_LIST/SUCCESS`;
+const FETCH_LIST_FAILURE = `${appName}/${moduleName}/FETCH_LIST/FAILURE`;
 
 const FETCH_ONE_REQUEST = `${appName}/${moduleName}/FETCH_ONE/REQUEST`;
 const FETCH_ONE_SUCCESS = `${appName}/${moduleName}/FETCH_ONE/SUCCESS`;
@@ -21,45 +22,31 @@ const SAVE_REQUEST = `${appName}/${moduleName}/SAVE/REQUEST`;
 const SAVE_SUCCESS = `${appName}/${moduleName}/SAVE/SUCCESS`;
 const SAVE_FAILURE = `${appName}/${moduleName}/SAVE/FAILURE`;
 
-const DELETE_PRODUCT_REQUEST = `${appName}/${moduleName}/DELETE_PRODUCT/REQUEST`;
-const DELETE_PRODUCT_SUCCESS = `${appName}/${moduleName}/DELETE_PRODUCT/SUCCESS`;
-const DELETE_PRODUCT_FAILURE = `${appName}/${moduleName}/DELETE_PRODUCT/FAILURE`;
+const DELETE_REQUEST = `${appName}/${moduleName}/DELETE/REQUEST`;
+const DELETE_SUCCESS = `${appName}/${moduleName}/DELETE/SUCCESS`;
+const DELETE_FAILURE = `${appName}/${moduleName}/DELETE/FAILURE`;
 
 /**
- * Action Creators
+ * Action creator
  */
+
 export const fetchProducts = page => async (dispatch, _getState, { api }) => {
   dispatch({
-    type: FETCH_PRODUCTS_REQUEST
+    type: FETCH_LIST_REQUEST
   });
+
   try {
     const data = await api.products.getAll(page);
+
     dispatch({
-      type: FETCH_PRODUCTS_SUCCESS,
+      type: FETCH_LIST_SUCCESS,
       payload: data
     });
   } catch (error) {
     dispatch({
-      type: FETCH_PRODUCTS_FAILURE,
+      type: FETCH_LIST_FAILURE,
       payload: error
     });
-  }
-};
-
-export const deleteProduct = product => async (
-  dispatch,
-  _getState,
-  { api }
-) => {
-  dispatch({ type: DELETE_PRODUCT_REQUEST });
-
-  try {
-    await api.products.deleteOne(product);
-    dispatch({ type: DELETE_PRODUCT_SUCCESS, payload: product });
-    return true;
-  } catch (error) {
-    dispatch({ type: DELETE_PRODUCT_FAILURE, payload: error });
-    return false;
   }
 };
 
@@ -68,8 +55,10 @@ export const fetchProduct = id => async (dispatch, _getState, { api }) => {
     type: FETCH_ONE_REQUEST,
     payload: id
   });
+
   try {
     const data = await api.products.getOne(id);
+
     dispatch({
       type: FETCH_ONE_SUCCESS,
       payload: data
@@ -90,6 +79,7 @@ export const saveNewProduct = newProduct => async (
   dispatch({
     type: SAVE_NEW_REQUEST
   });
+
   try {
     const product = await api.products.saveNew(newProduct);
 
@@ -97,6 +87,7 @@ export const saveNewProduct = newProduct => async (
       type: SAVE_NEW_SUCCESS,
       payload: product
     });
+
     return product;
   } catch (error) {
     dispatch({
@@ -106,7 +97,7 @@ export const saveNewProduct = newProduct => async (
   }
 };
 
-export const saveProduct = editProduct => async (
+export const saveProduct = newProduct => async (
   dispatch,
   _getState,
   { api }
@@ -114,13 +105,15 @@ export const saveProduct = editProduct => async (
   dispatch({
     type: SAVE_REQUEST
   });
+
   try {
-    const product = await api.products.save(editProduct);
+    const product = await api.products.save(newProduct);
 
     dispatch({
       type: SAVE_SUCCESS,
       payload: product
     });
+
     return product;
   } catch (error) {
     dispatch({
@@ -130,30 +123,54 @@ export const saveProduct = editProduct => async (
   }
 };
 
-/**
- * Default state
- */
-export const defaultState = {
+export const deleteProduct = product => async (
+  dispatch,
+  _getState,
+  { api }
+) => {
+  dispatch({
+    type: DELETE_REQUEST
+  });
+
+  try {
+    await api.products.deleteOne(product);
+
+    dispatch({
+      type: DELETE_SUCCESS,
+      payload: product
+    });
+
+    return true;
+  } catch (error) {
+    dispatch({
+      type: DELETE_FAILURE,
+      payload: error
+    });
+    return false;
+  }
+};
+
+const defaultState = {
   isLoading: false,
+  error: null,
   list: [],
+
   total: 1,
   page: 1,
   limit: 1,
+
   one: null
 };
 
-/**
- * Reducer
- */
 export default function reducer(state = defaultState, action) {
   switch (action.type) {
-    case FETCH_PRODUCTS_REQUEST:
+    case FETCH_LIST_REQUEST:
       return {
         ...state,
         isLoading: true,
         list: []
       };
-    case FETCH_PRODUCTS_SUCCESS:
+    case FETCH_LIST_SUCCESS:
       return {
         ...state,
         isLoading: false,
@@ -161,6 +178,12 @@ export default function reducer(state = defaultState, action) {
         total: action.payload.total,
         page: action.payload.page,
         limit: action.payload.limit
+      };
+    case FETCH_LIST_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload
       };
     case FETCH_ONE_REQUEST:
       return {
@@ -174,7 +197,6 @@ export default function reducer(state = defaultState, action) {
         isLoading: false,
         one: action.payload
       };
-
     default:
       return state;
   }
@@ -183,9 +205,7 @@ export default function reducer(state = defaultState, action) {
 /**
  * Selectors
  */
-
 export const stateSelector = state => state[moduleName];
-
 export const productsSelector = createSelector(
   stateSelector,
   state => state.list
