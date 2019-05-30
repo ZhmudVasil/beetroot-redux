@@ -1,16 +1,36 @@
 import React from "react";
 import { connect } from "react-redux";
 import { increase, decrease } from "../ducks/counter";
+import "./Counter.css";
 
 class Counter extends React.Component {
   render() {
     return (
       <div>
         <h1>ReduxCounter</h1>
-        {this.props.count}
+        <div className="counter">
+          <div
+            style={{
+              color: this.props.count >= 0 ? "green" : "red"
+            }}
+            className="counterCount"
+          >
+            {this.props.count}
+          </div>
 
-        <button onClick={() => this.props.increase(10)}>+10</button>
-        <button onClick={() => this.props.decrease(10)}>-10</button>
+          <button
+            className="counter-btn"
+            onClick={() => this.props.increase(10)}
+          >
+            +10
+          </button>
+          <button
+            className="counter-btn"
+            onClick={() => this.props.decrease(10)}
+          >
+            -10
+          </button>
+        </div>
       </div>
     );
   }

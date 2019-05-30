@@ -5,6 +5,7 @@ import {
   productSelector,
   isLoadingSelector
 } from "../../ducks/products";
+import "./Products.css";
 
 class ShowProduct extends React.Component {
   componentDidMount() {
@@ -18,7 +19,7 @@ class ShowProduct extends React.Component {
     if (!one) return null;
 
     return (
-      <div>
+      <div className="showProduct-form">
         <h1>{one.name}</h1>
       </div>
     );

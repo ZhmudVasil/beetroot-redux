@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchList } from "../../ducks/todos";
 
+import "./Todo.css";
+
 import NewItemForm from "./NewItemForm";
 import List from "./List";
 import Filter from "./Filter";
@@ -12,11 +14,13 @@ class Todo extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="todo">
         <h1>TODO</h1>
-        <NewItemForm />
-        <List />
-        <Filter />
+        <div className="todoForm">
+          <NewItemForm />
+          <List />
+          <Filter />
+        </div>
       </div>
     );
   }

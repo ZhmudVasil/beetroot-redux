@@ -1,0 +1,81 @@
+.productsListForm, .showProduct-form, .productsForm{
+    border: 2px solid grey;
+    border-radius: 10px;
+    width: 400px;
+    margin:  0 auto;
+}
+.productList-btnAdd{
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    margin: 0;
+}
+.productList-itemFotm{
+    margin: 20px 0;
+}
+.productsList-item{
+    margin: 10px;
+    text-align: left;
+}
+
+.productsList-itemName{
+    text-align: right;
+}
+
+.productsList-btn{
+    border-radius: 15px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.productsList-btnEdit{
+    float: right; 
+}
+.productsList-btnEdit:hover, .editProduct-btn:hover{
+    box-shadow: 0 0 2px 2px red;
+}
+hr{
+    margin-top: 25px;
+    width: 90%;
+    text-align: center;
+}
+.productsList-pages{
+margin-bottom: 8px;
+}
+.productsList-page{
+    margin: 5px;
+}
+.showProduct-form{
+    padding-bottom: 200px;
+    margin: 15px auto;
+}
+
+.productsForm{
+    padding: 15px;
+}
+.productsForm-item{
+    text-align: left;
+    margin: 5px;
+}
+.productsForm-label{
+    float: left;
+    width: 30%;
+}
+.productsForm-field{
+    width: 68%;
+}
+.productsForm-btn, .editProduct-btn{
+    margin: 15px 0 0;
+    border-radius: 10px;
+    width: 100px;
+    font-weight: 600;
+}
+
+.editProduct-btn{
+    margin: 15px 0 25px;
+    width: 430px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 500;
+}

@@ -1,0 +1,26 @@
+.loginForm{
+    border: 2px solid grey;
+    border-radius: 10px;
+    width: 400px;
+    margin:  0 auto;
+}
+.loginForm{
+    padding: 15px;
+}
+.loginForm-item{
+    text-align: left;
+    margin: 5px;
+}
+.loginForm-label{
+    float: left;
+    width: 30%;
+}
+.loginForm-field{
+    width: 68%;
+}
+.loginForm-btn{
+    margin: 15px 0 0;
+    border-radius: 10px;
+    width: 100px;
+    font-weight: 600;
+}

@@ -7,6 +7,7 @@ import {
   filteredTodosSelector,
   isLoadingSelector
 } from "../../ducks/todos";
+import "./Todo.css";
 
 class List extends React.Component {
   render() {
@@ -19,7 +20,7 @@ class List extends React.Component {
     } = this.props;
 
     return (
-      <div>
+      <div className="todoList">
         {isLoading && "Loading..."}
         {list.map(item => (
           <div
@@ -40,8 +41,10 @@ class List extends React.Component {
               value={item.text}
               onChange={e => changeItemText(item.id, e.target.value)}
             />
-            {item.text}
+            <span className="todoList-text">{item.text}</span>
+
             <input
+              className="todoList-delete"
               type="submit"
               value="x"
               onClick={() => deleteItem(item.id)}

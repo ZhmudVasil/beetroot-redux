@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { login } from "../ducks/auth";
+import "./Login.css";
 
 function Login({ login }) {
   return (
@@ -24,18 +25,28 @@ function Login({ login }) {
         }}
       >
         {({ isSubmitting }) => (
-          <Form>
-            <div>
-              <Field type="text" name="login" />
+          <Form className="loginForm">
+            <div className="loginForm-item">
+              <label className="loginForm-label">login</label>
+              <Field className="loginForm-field" type="text" name="login" />
               <ErrorMessage name="login" component="div" />
             </div>
 
-            <div>
-              <Field type="password" name="password" />
+            <div className="loginForm-item">
+              <label className="loginForm-label">password</label>
+              <Field
+                className="loginForm-field"
+                type="password"
+                name="password"
+              />
               <ErrorMessage name="password" component="div" />
             </div>
 
-            <button type="submit" disabled={isSubmitting}>
+            <button
+              className="loginForm-btn"
+              type="submit"
+              disabled={isSubmitting}
+            >
               Submit
             </button>
           </Form>

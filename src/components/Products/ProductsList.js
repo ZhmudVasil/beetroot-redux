@@ -8,6 +8,7 @@ import {
 } from "../../ducks/products";
 import { Link } from "react-router-dom";
 import qs from "query-string";
+import "./Products.css";
 
 class ProductsList extends React.Component {
   componentDidMount() {
@@ -32,25 +33,46 @@ class ProductsList extends React.Component {
     return (
       <div>
         <h1>Products List</h1>
-        <h2>
-          <Link to={"/products/new"}>Add new item</Link>
-        </h2>
-
-        {isLoading && <div>Loading...</div>}
-
-        {list.map(item => (
-          <div key={item.id}>
-            <Link to={`/products/${item.id}`}>{item.name}</Link>
-            {"  "}
-            {<Link to={`/products/${item.id}/edit`}>Edit</Link>}
-          </div>
-        ))}
-        <div>
-          {pages.map(p => (
-            <Link key={p} to={`/products?page=${p}`}>
-              {p}
+        <div className="productsListForm">
+          <h2 className="productList-btnAdd">
+            <Link to={"/products/new"}>
+              <button className="productsList-btn">Add new item</button>{" "}
             </Link>
-          ))}
+          </h2>
+
+          {isLoading && <div>Loading...</div>}
+          <div className="productList-itemFotm">
+            {list.map(item => (
+              <div key={item.id} className="productsList-item">
+                <Link to={`/products/${item.id}`}>
+                  <span className="productsList-itemName">{item.name}</span>
+                </Link>
+
+                {
+                  <Link to={`/products/${item.id}/edit`}>
+                    <button className="productsList-btn productsList-btnEdit">
+                      Edit
+                    </button>
+                  </Link>
+                }
+              </div>
+            ))}
+          </div>
+          <hr />
+          <div className="productsList-pages">
+            {pages.map(p => (
+              <Link
+                className="productsList-page"
+                key={p}
+                style={{
+                  color: pages.p ? "green" : "red"
+                }}
+                to={`/products?page=${p}`}
+              >
+                {p}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     );

@@ -9,15 +9,32 @@ import {
   filteredTodosSelector
 } from "../../ducks/todos";
 
+import "./Todo.css";
+
 function Filter({ number, showActive, showAll, showDone, fetchList }) {
   return (
-    <div>
-      {number}
-      <button onClick={showActive}> showActive </button>
-      <button onClick={showAll}> showAll </button>
-      <button onClick={showDone}> showDone </button>
+    <div className="todoFilter">
+      <i className="todoFilter-count">
+        {number}
+        <span className="todoFilter-counts">elements</span>
+      </i>
+      <button className="todoFilter-btn" onClick={showActive}>
+        {" "}
+        showActive{" "}
+      </button>
+      <button className="todoFilter-btn" onClick={showAll}>
+        {" "}
+        showAll{" "}
+      </button>
+      <button className="todoFilter-btn" onClick={showDone}>
+        {" "}
+        showDone{" "}
+      </button>
       <div>
-        <button onClick={fetchList}> load todos </button>
+        <button className="todoFilter-btn" onClick={fetchList}>
+          {" "}
+          load todos{" "}
+        </button>
       </div>
     </div>
   );

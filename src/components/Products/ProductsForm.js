@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { withRouter } from "react-router-dom";
+import "./Products.css";
 
 class ProductsForm extends React.Component {
   render() {
@@ -26,19 +27,27 @@ class ProductsForm extends React.Component {
         }}
       >
         {({ isSubmitting }) => (
-          <Form>
-            <div>
-              <label>name</label>
-              <Field type="text" name="name" />
+          <Form className="productsForm">
+            <div className="productsForm-item">
+              <label className="productsForm-label">name</label>
+              <Field className="productsForm-field" type="text" name="name" />
               <ErrorMessage name="name" component="div" />
             </div>
-            <div>
-              <label>description</label>
-              <Field type="text" name="description" />
+            <div className="productsForm-item">
+              <label className="productsForm-label">description</label>
+              <Field
+                className="productsForm-field"
+                type="text"
+                name="description"
+              />
               <ErrorMessage name="description" component="div" />
             </div>
 
-            <button type="submit" disabled={isSubmitting}>
+            <button
+              className="productsForm-btn"
+              type="submit"
+              disabled={isSubmitting}
+            >
               Submit
             </button>
           </Form>

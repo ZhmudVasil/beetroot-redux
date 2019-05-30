@@ -9,6 +9,7 @@ import {
   deleteProduct
 } from "../../ducks/products";
 import ProductForm from "./ProductsForm";
+import "./Products.css";
 
 class EditProduct extends React.Component {
   componentDidMount() {
@@ -35,7 +36,9 @@ class EditProduct extends React.Component {
 
         <ProductForm product={product} saveProduct={saveProduct} />
 
-        <button onClick={this.deleteCurrentProduct}>delete</button>
+        <button className="editProduct-btn" onClick={this.deleteCurrentProduct}>
+          delete this products
+        </button>
       </div>
     );
   }

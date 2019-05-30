@@ -22,7 +22,7 @@ import requireAuth from "./components/requireAuth";
 function App() {
   return (
     <div className="App">
-      <h1>ver 1</h1>
+      <h1>Our apps</h1>
       <Router>
         <nav>
           <Link className="nav-link" to="/todo">

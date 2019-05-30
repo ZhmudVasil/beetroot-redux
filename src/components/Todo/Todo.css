@@ -1,0 +1,68 @@
+button{
+    border: none;
+    height: 21px;
+}
+button:hover{
+    box-shadow: 0 0 2px 2px lightgreen;
+}
+button:focus{
+    outline: none;
+}
+
+.todoNewItemForm{
+    border: 2px solid lightgray;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.todoForm{
+    border: 2px solid grey;
+    border-radius: 10px;
+    
+}
+.todo{
+    width: 40%;
+    margin: 0 auto;
+}
+.todoNewItemForm-btn{
+    border-radius: 10px;
+    margin: 10px;
+    width: 100px;
+}
+.todoList{
+    text-align: left;
+    padding: 15px;
+}
+.todoList-delete{
+    float:right;
+    border-radius: 50%;
+    border: none;
+}
+.todoList-text{
+    margin-left: 25px;
+}
+
+.todoList-delete:hover{
+    box-shadow: 0 0 5px 2px red;
+}
+.todoList-delete:focus{
+    outline: none;
+}
+
+.todoFilter{
+    border: 2px solid lightgray;
+    padding: 15px;
+    border-radius: 10px;
+}
+.todoFilter-btn{
+    margin: 5px;
+    border-radius: 5px;
+}
+.todoFilter-count{
+    color: red;
+    margin-right: 25px;
+}
+.todoFilter-counts{
+    color: black;
+    margin: 15px;
+}
