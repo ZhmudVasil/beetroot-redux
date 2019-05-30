@@ -39,7 +39,6 @@ function App() {
             login
           </Link>
         </nav>
-        {/* <Route exact path="/" component={Todo} /> */}
         <Switch>
           <Route path="/login" component={Login} />
 
