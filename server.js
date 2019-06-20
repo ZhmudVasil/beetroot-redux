@@ -20,6 +20,10 @@ server.post("/login", (req, res) => {
   }
 });
 
+server.post("/logout", (req, res) => {
+  res.sendStatus(200);
+});
+
 function isAuthorized(req) {
   return (
     req.headers.authorization && req.headers.authorization === `Bearer ${token}`
@@ -27,7 +31,7 @@ function isAuthorized(req) {
 }
 
 server.use((req, res, next) => {
-  if (isAuthorized(req)) {
+  if (isAuthorized(req) || req.method === "GET") {
     next();
   } else {
     res.sendStatus(401);

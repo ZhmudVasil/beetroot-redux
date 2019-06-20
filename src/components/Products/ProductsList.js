@@ -65,7 +65,7 @@ class ProductsList extends React.Component {
                 className="productsList-page"
                 key={p}
                 style={{
-                  color: pages.p ? "green" : "red"
+                  color: p === this.getPageNumber(this.props) ? "green" : "red"
                 }}
                 to={`/products?page=${p}`}
               >

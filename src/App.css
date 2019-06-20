@@ -33,5 +33,22 @@
 }
 
 .nav-link{
-padding: 10px;
+  padding: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: darkblue;
+  font-weight: 600;
+
+}
+.nav-form{
+width: 50%;
+
+}
+.nav-link-auth{
+  float: right;
+  padding: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: darkblue;
+  font-weight: 600;
 }

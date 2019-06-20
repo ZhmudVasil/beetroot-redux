@@ -276,7 +276,7 @@ export const errorMessageSelector = createSelector(
   state => state.error && state.error.message
 );
 
-const todosSelector = createSelector(
+export const todosSelector = createSelector(
   stateSelector,
   state => state.items
 );

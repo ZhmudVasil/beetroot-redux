@@ -6,16 +6,24 @@ import {
   showAll,
   showDone,
   fetchList,
-  filteredTodosSelector
+  filteredTodosSelector,
+  todosSelector
 } from "../../ducks/todos";
 
 import "./Todo.css";
 
-function Filter({ number, showActive, showAll, showDone, fetchList }) {
+function Filter({
+  number,
+  numberAll,
+  showActive,
+  showAll,
+  showDone,
+  fetchList
+}) {
   return (
     <div className="todoFilter">
       <i className="todoFilter-count">
-        {number}
+        {number} of {numberAll}
         <span className="todoFilter-counts">elements</span>
       </i>
       <button className="todoFilter-btn" onClick={showActive}>
@@ -42,7 +50,8 @@ function Filter({ number, showActive, showAll, showDone, fetchList }) {
 
 export default connect(
   state => ({
-    number: filteredTodosSelector(state).length
+    number: filteredTodosSelector(state).length,
+    numberAll: todosSelector(state).length
   }),
   { showActive, showAll, showDone, fetchList }
 )(Filter);

@@ -16,6 +16,7 @@ import ShowProduct from "./components/Products/ShowProduct";
 import EditProduct from "./components/Products/EditProduct";
 import NewProduct from "./components/Products/NewProduct";
 import Login from "./components/Login";
+// import Logout from "./components/Logout";
 
 import requireAuth from "./components/requireAuth";
 
@@ -24,7 +25,22 @@ function App() {
     <div className="App">
       <h1>Our apps</h1>
       <Router>
-        <nav>
+        {localStorage.getItem("token") ? (
+          <Link className="nav-link-auth" to="/login">
+            logout
+          </Link>
+        ) : (
+          <Link className="nav-link-auth" to="/login">
+            login
+          </Link>
+        )}
+        {/* <Link className="nav-link-auth" to="/login">
+          login
+        </Link> */}
+        {/* <Link className="nav-link-auth" to="/logout">
+          logout
+        </Link> */}
+        <nav className="nav-form">
           <Link className="nav-link" to="/todo">
             todo
           </Link>
@@ -34,14 +50,10 @@ function App() {
           <Link className="nav-link" to="/products">
             products
           </Link>
-
-          <Link className="nav-link" to="/login">
-            login
-          </Link>
         </nav>
         <Switch>
           <Route path="/login" component={Login} />
-
+          {/* <Route path="/logout" component={Logout} /> */}
           <Route path="/todo" component={requireAuth(Todo)} />
           <Route path="/counter" component={Counter} />
           <Redirect exact from="/" to="/todo" />
